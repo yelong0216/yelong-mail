@@ -12,33 +12,32 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 收件人
- * @author PengFei
  */
 public class Recipient {
 
-	//收件人邮箱
+	// 收件人邮箱
 	private String recipientMail;
 
-	//收件人名称
+	// 收件人名称
 	private String recipientName;
 
-	//收件人名称编码格式
+	// 收件人名称编码格式
 	private String charset;
-	
-	//收件类型（抄送，密送，还是什么送）
+
+	// 收件类型（抄送，密送，还是什么送）
 	private RecipientType recipientType;
 
-	public Recipient(String recipientMail , RecipientType recipientType) {
+	public Recipient(String recipientMail, RecipientType recipientType) {
 		this.recipientMail = recipientMail;
 		this.recipientType = recipientType;
 	}
-	
-	public Recipient(String recipientMail , String recipientName,RecipientType recipientType) {
+
+	public Recipient(String recipientMail, String recipientName, RecipientType recipientType) {
 		this(recipientMail, recipientType);
 		this.recipientName = recipientName;
 	}
-	
-	public Recipient(String recipientMail , String recipientName, String charset ,RecipientType recipientType) {
+
+	public Recipient(String recipientMail, String recipientName, String charset, RecipientType recipientType) {
 		this(recipientMail, recipientName, recipientType);
 		this.charset = charset;
 	}
@@ -58,18 +57,19 @@ public class Recipient {
 	public RecipientType getRecipientType() {
 		return recipientType;
 	}
-	
+
 	/**
 	 * 获取收件人address
+	 * 
 	 * @return 收件人address
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException 不支持的编码
 	 */
 	public InternetAddress getInternetAddress() throws UnsupportedEncodingException {
-		if(StringUtils.isEmpty(charset)) {
+		if (StringUtils.isEmpty(charset)) {
 			return new InternetAddress(recipientMail, recipientName);
 		} else {
-			return new InternetAddress(recipientMail, recipientName,charset);
+			return new InternetAddress(recipientMail, recipientName, charset);
 		}
 	}
-	
+
 }

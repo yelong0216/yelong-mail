@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.yelong0216</groupId>
 	<artifactId>yelong-mail</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 	<name>yelong-mail</name>
 	<url>https://github.com/yelong0216/yelong-mail.git</url>
@@ -17,8 +17,8 @@
 	</licenses>
 	<developers>
 		<developer>
-			<name>彭飞</name>
-			<email>17601085125@163.com</email>
+			<name>yelong</name>
+			<email>yelong010216@163.com</email>
 		</developer>
 	</developers>
 	<scm>

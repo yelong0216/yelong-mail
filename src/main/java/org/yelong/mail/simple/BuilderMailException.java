@@ -5,7 +5,6 @@ package org.yelong.mail.simple;
 
 /**
  * 构建邮件异常
- * @author PengFei
  */
 public class BuilderMailException extends Exception{
 

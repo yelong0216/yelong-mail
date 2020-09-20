@@ -12,20 +12,19 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 邮件发件人
- * @author PengFei
  */
 public class Sender {
 
-	//发件人邮箱
+	// 发件人邮箱
 	private String senderMail;
-	
-	//发件人邮箱客户端授权码（不是密码）
+
+	// 发件人邮箱客户端授权码（不是密码）
 	private String senderPwd;
-	
-	//显示的发件人姓名（可空）
+
+	// 显示的发件人姓名（可空）
 	private String senderName;
-	
-	//发件人姓名编码格式
+
+	// 发件人姓名编码格式
 	private String charset;
 
 	public Sender(String senderMail, String senderPwd) {
@@ -38,9 +37,9 @@ public class Sender {
 
 	/**
 	 * @param senderEmail 发件人邮箱
-	 * @param senderPwd	发件人授权码
-	 * @param senderName 发件人姓名
-	 * @param charset 发件人姓名编码格式
+	 * @param senderPwd   发件人授权码
+	 * @param senderName  发件人姓名
+	 * @param charset     发件人姓名编码格式
 	 */
 	public Sender(String senderMail, String senderPwd, String senderName, String charset) {
 		this.senderMail = senderMail;
@@ -65,21 +64,16 @@ public class Sender {
 		return charset;
 	}
 
-	/**
-	 * 获取发件人Address
-	 * @return
-	 * @throws AddressException
-	 * @throws UnsupportedEncodingException
-	 */
+	// 获取发件人Address
 	public InternetAddress getAddress() throws AddressException, UnsupportedEncodingException {
 		InternetAddress address = null;
-		if(StringUtils.isNotEmpty(senderName)) {
-			if(StringUtils.isEmpty(charset)) {
+		if (StringUtils.isNotEmpty(senderName)) {
+			if (StringUtils.isEmpty(charset)) {
 				address = new InternetAddress(senderMail, senderName);
 			} else {
 				address = new InternetAddress(senderMail, senderName, charset);
 			}
-		}else {
+		} else {
 			address = new InternetAddress(senderMail);
 		}
 		return address;
